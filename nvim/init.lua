@@ -21,6 +21,7 @@ require("lazy").setup({
     end,
   },
   { "tpope/vim-fugitive" },
+  { "mechatroner/rainbow_csv" },
   {
     "folke/tokyonight.nvim",
     priority = 1000,
