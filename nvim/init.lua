@@ -49,7 +49,6 @@ require("lazy").setup({
 })
 
 vim.opt.number = true
-vim.opt.relativenumber = true
 
 -- Biome LSP (built-in nvim 0.11+ API)
 vim.lsp.config("biome", {
@@ -76,5 +75,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
   end,
 })
