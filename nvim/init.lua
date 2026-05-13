@@ -10,7 +10,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "lewis6991/gitsigns.nvim", config = true },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup({
+        on_attach = function(bufnr)
+          local gs = require("gitsigns")
+          local opts = { buffer = bufnr }
+          vim.keymap.set("n", "]h", gs.next_hunk, opts)
+          vim.keymap.set("n", "[h", gs.prev_hunk, opts)
+          vim.keymap.set("n", "<leader>hp", gs.preview_hunk, opts)
+          vim.keymap.set("n", "<leader>hs", gs.stage_hunk, opts)
+          vim.keymap.set("n", "<leader>hu", gs.undo_stage_hunk, opts)
+          vim.keymap.set("n", "<leader>hr", gs.reset_hunk, opts)
+          vim.keymap.set("n", "<leader>hb", gs.blame_line, opts)
+        end,
+      })
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
