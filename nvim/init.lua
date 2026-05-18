@@ -75,6 +75,18 @@ require("lazy").setup({
 
 vim.opt.number = true
 
+-- Yank filename to clipboard in netrw
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "netrw",
+  callback = function()
+    vim.keymap.set("n", "y", function()
+      local fname = vim.fn.expand("<cfile>")
+      vim.fn.setreg("+", fname)
+      print("Yanked: " .. fname)
+    end, { buffer = true })
+  end,
+})
+
 -- Biome LSP (built-in nvim 0.11+ API)
 vim.lsp.config("biome", {
   cmd = { "bunx", "biome", "lsp-proxy" },
