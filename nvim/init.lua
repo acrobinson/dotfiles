@@ -41,7 +41,19 @@ require("lazy").setup({
   {
     "stevearc/oil.nvim",
     config = function()
-      require("oil").setup()
+      require("oil").setup({
+        delete_to_trash = true,
+        prompt_save_on_select_new_entry = true,
+        keymaps = {
+          ["y"] = function()
+            local entry = require("oil").get_cursor_entry()
+            if entry then
+              vim.fn.setreg("+", entry.name)
+              vim.notify("Yanked: " .. entry.name)
+            end
+          end,
+        },
+      })
       vim.keymap.set("n", "-", "<CMD>Oil<CR>")
     end,
   },
