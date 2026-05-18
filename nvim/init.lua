@@ -38,6 +38,13 @@ require("lazy").setup({
     end,
   },
   { "tpope/vim-fugitive" },
+  {
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+      vim.keymap.set("n", "-", "<CMD>Oil<CR>")
+    end,
+  },
   { "mechatroner/rainbow_csv" },
   {
     "folke/tokyonight.nvim",
