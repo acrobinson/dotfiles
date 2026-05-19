@@ -44,6 +44,9 @@ require("lazy").setup({
       require("oil").setup({
         delete_to_trash = true,
         prompt_save_on_select_new_entry = true,
+        view_options = {
+          show_hidden = true,
+        },
         keymaps = {
           ["y"] = function()
             local entry = require("oil").get_cursor_entry()
