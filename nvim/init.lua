@@ -39,11 +39,21 @@ require("lazy").setup({
   },
   { "tpope/vim-fugitive" },
   {
+    "refractalize/oil-git-status.nvim",
+    dependencies = { "stevearc/oil.nvim" },
+    config = function()
+      require("oil-git-status").setup()
+      vim.api.nvim_set_hl(0, "OilGitStatusUntracked", { fg = "#e5c07b" })
+      vim.api.nvim_set_hl(0, "OilGitStatusIgnored",   { fg = "#5c6370" })
+    end,
+  },
+  {
     "stevearc/oil.nvim",
     config = function()
       require("oil").setup({
         delete_to_trash = true,
         prompt_save_on_select_new_entry = true,
+        columns = { "git_status", "icon" },
         view_options = {
           show_hidden = true,
         },
