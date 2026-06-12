@@ -61,7 +61,7 @@ require("lazy").setup({
           show_hidden = true,
         },
         keymaps = {
-          ["y"] = function()
+          ["gy"] = function()
             local entry = require("oil").get_cursor_entry()
             if entry then
               vim.fn.setreg("+", entry.name)
