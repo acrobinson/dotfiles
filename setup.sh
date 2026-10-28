@@ -16,3 +16,4 @@ link() {
 }
 
 link nvim ~/.config/nvim
+link herdr/config.toml ~/.config/herdr/config.toml

@@ -1,0 +1,4 @@
+onboarding = false
+
+[ui]
+right_click_passthrough_modifier = "alt"
