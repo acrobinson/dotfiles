@@ -17,3 +17,4 @@ link() {
 
 link nvim ~/.config/nvim
 link herdr/config.toml ~/.config/herdr/config.toml
+link starship/starship.toml ~/.config/starship.toml
